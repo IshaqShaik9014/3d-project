@@ -1,47 +1,75 @@
-# Bolly Shampoo 3D Interactive Landing Page
+<div align="center">
 
-This repository contains the source code for the Bolly Shampoo interactive 3D landing page, developed as a high-performance frontend assignment. It features a fully responsive, pixel-perfect UI and a custom 3D WebGL product experience.
+# 🧴 Bolly Shampoo: 3D Interactive Landing Page
 
-## Assignment Requirements Fulfilled
+**A highly immersive, WebGL-powered 3D product experience built for modern browsers.**
 
-### 1. Landing Page & Design Accuracy
-The landing page accurately replicates the reference design:
-* **Typography:** Utilizes fluid typography (`clamp()`) to perfectly match the heavy sans-serif headers and elegant serif supporting text.
-* **Layout:** Implements a robust absolute-positioned overlay layout. The 3D canvas sits behind the text on large screens (Desktop/Tablet) to achieve the seamless depth effect, and gracefully collapses into a stacked flexbox layout on mobile.
-* **Aesthetics:** Matches the exact color palette, including the `#855ef5` purple, the `#d6f22e` lime green cart button, the soft violet background shadow, and the subtle ambient noise texture.
+[![Three.js](https://img.shields.io/badge/Three.js-black?style=for-the-badge&logo=three.js&logoColor=white)](#)
+[![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](#)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
 
-### 2. Interactive 3D Product
-Built using **Three.js**, the shampoo bottle is a fully interactive 3D object:
-* **Desktop:** Users can click and drag with their cursor to rotate the bottle.
-* **Mobile:** Users can use touch gestures to swipe and rotate the bottle smoothly.
-* **Dynamic Lighting:** Includes ambient and directional lighting to replicate studio lighting, highlighting the glossy finish of the bottle.
+*An assignment submission demonstrating advanced frontend rendering, responsive architecture, and fluid typography.*
 
-### 3. Responsive Design
-The experience is flawlessly responsive across all devices:
-* **Desktop (1024px+):** Immersive 3-column overlay with the bottle taking center stage.
-* **Tablet (768px - 1024px):** Retains the 3-column overlay by fluidly scaling the typography to prevent overlapping.
-* **Mobile (320px - 768px):** Automatically switches to a clean, vertically stacked layout. The 3D canvas recalculates its Field of View (FOV) based on the portrait aspect ratio, guaranteeing the bottle is never cut off on narrow screens. 
+---
 
-### 4. Code Quality & WordPress Integration
-The codebase is clean, modular, and built using Vite for instant HMR and optimized bundling. 
-* **WordPress + Elementor:** The HTML, CSS, and JS components are structured so they can be seamlessly ported into a WordPress Elementor environment via the Custom HTML widget. 
-* Please refer to the `WORDPRESS-ELEMENTOR-INTEGRATION.md` file in this repository for exact instructions on embedding the Three.js scene into Elementor without conflicts.
+</div>
 
-## Running the Project Locally
+## ✨ Key Features
+
+This project was developed strictly against assignment requirements, featuring:
+
+- **📦 Real-time 3D Object Rendering:** The shampoo bottle is a custom STL model rendered using WebGL, showcasing physical material properties like roughness, clearcoat, and index of refraction (IOR).
+- **🖐️ Interactive Controls:** Natively supports both **desktop cursor dragging** and **mobile touch gestures** to seamlessly rotate and inspect the product.
+- **💡 Studio Lighting Simulation:** Implements a dynamic lighting rig (Key, Fill, Rim, Ambient, and PMREM environment) to create photorealistic gloss and shadows.
+- **📱 Fluid Responsiveness (Down to 320px):** 
+  - *Desktop/Tablet:* Utilizes a robust `position: absolute` overlay layout to achieve stunning depth-of-field over the 3D canvas.
+  - *Mobile:* Intelligently collapses into a vertical flexbox layout, using `clamp()` typography to prevent overlapping or horizontal scrolling on devices as narrow as 320px.
+- **🎨 Pixel-Perfect Replication:** Strict adherence to the provided design reference, including color hexes, typography (Inter & DM Serif Display), and the custom SVG cart UI.
+- **⚙️ WordPress / Elementor Ready:** Code is modular and isolated, ready to be embedded into any WordPress Elementor HTML widget.
+
+<br/>
+
+## 🚀 Quick Start
+
+To run this project locally, ensure you have [Node.js](https://nodejs.org/) installed, then follow these steps:
 
 ```bash
-# Install dependencies
+# 1. Clone the repository
+git clone https://github.com/IshaqShaik9014/3d-project.git
+
+# 2. Navigate into the directory
+cd 3d-project
+
+# 3. Install dependencies
 npm install
 
-# Start the development server
+# 4. Start the Vite development server
 npm run dev
-
-# Build for production
-npm run build
 ```
 
-## Technologies Used
-* HTML5 / Vanilla CSS3
-* JavaScript (ES6+)
-* Three.js (WebGL rendering)
-* Vite (Build tool)
+Your browser will automatically open the project at `http://localhost:5173`.
+
+<br/>
+
+## 🛠️ Tech Stack & Architecture
+
+- **Core Engine:** `Three.js` is used to load the STL geometry, generate the PBR materials, and handle the animation loop.
+- **Camera & Controls:** Utilizes `PerspectiveCamera` with automated FOV adjustments for mobile, alongside `OrbitControls` with damping enabled for silky-smooth rotation.
+- **Build Tool:** `Vite` provides instant Hot Module Replacement (HMR) and bundles the final assets for production.
+- **Styling:** Pure Vanilla CSS using custom variables and advanced media queries. No heavy CSS frameworks were used, ensuring lightning-fast load times.
+
+<br/>
+
+## 📦 WordPress Integration Instructions
+
+This project is structured so it can be seamlessly embedded into **WordPress Elementor**. 
+
+Check out the [WORDPRESS-ELEMENTOR-INTEGRATION.md](./WORDPRESS-ELEMENTOR-INTEGRATION.md) file included in this repository for a step-by-step guide on how to paste this code into a live Elementor staging site using the Custom HTML Widget.
+
+<br/>
+
+<div align="center">
+  <i>Developed by Ishaq Shaik for the Frontend Development Assignment</i>
+</div>
