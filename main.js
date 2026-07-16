@@ -195,16 +195,16 @@ function createFrontTexture() {
         ctx.font = '800 65px "Inter", "Helvetica Neue", Arial, sans-serif';
         ctx.fillText('300ml', leftMargin, 1750);
         
-        // BOTTOM-RIGHT: Deep Cleanser Shampoo block
+        // BOTTOM-RIGHT: Clarify Shampoo block
         ctx.textAlign = 'right';
         ctx.font = '600 130px "Inter", "Helvetica Neue", Arial, sans-serif';
-        ctx.fillText('Deep Cleanser', rightMargin, 1450);
+        ctx.fillText('Clarify', rightMargin, 1450);
         
         ctx.font = '500 120px "Inter", "Helvetica Neue", Arial, sans-serif';
         ctx.fillText('Shampoo', rightMargin, 1600);
         
         ctx.font = '400 50px "Inter", "Helvetica Neue", Arial, sans-serif';
-        ctx.fillText('Scalp reset + deep cleanser', rightMargin, 1750);
+        ctx.fillText('Scalp reset + clarify', rightMargin, 1750);
         
         texture.needsUpdate = true;
     });
