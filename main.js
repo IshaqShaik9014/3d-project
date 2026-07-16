@@ -204,7 +204,7 @@ function createFrontTexture() {
         ctx.fillText('Shampoo', rightMargin, 1600);
         
         ctx.font = '400 50px "Inter", "Helvetica Neue", Arial, sans-serif';
-        ctx.fillText('Scalp reset + clarify', rightMargin, 1750);
+        ctx.fillText('Scalp reset + deep cleanser', rightMargin, 1750);
         
         texture.needsUpdate = true;
     });
