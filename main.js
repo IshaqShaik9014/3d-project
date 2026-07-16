@@ -285,13 +285,19 @@ loader.load(
             loaderElement.classList.add('hidden');
         }
     },
-    undefined,
+    (xhr) => {
+        if (xhr.lengthComputable) {
+            const percentComplete = xhr.loaded / xhr.total * 100;
+            const loaderText = document.getElementById('loader-text');
+            if (loaderText) {
+                loaderText.innerText = `Loading 3D Model ${Math.round(percentComplete)}%`;
+            }
+        }
+    },
     (error) => {
         console.error("An error happened loading the STL", error);
     }
 );
-
-// --- PRESENTATION SHADOW ---
 const shadowCanvas = document.createElement('canvas');
 shadowCanvas.width = 256;
 shadowCanvas.height = 256;
