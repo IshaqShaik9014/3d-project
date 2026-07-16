@@ -278,6 +278,12 @@ loader.load(
         
         productGroup.scale.set(1.6, 1.6, 1.6);
         productGroup.position.y = -0.4;
+        
+        // Hide loader once geometry is parsed and added to scene
+        const loaderElement = document.getElementById('loader');
+        if (loaderElement) {
+            loaderElement.classList.add('hidden');
+        }
     },
     undefined,
     (error) => {
