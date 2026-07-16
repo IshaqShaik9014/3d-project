@@ -211,9 +211,16 @@ const loader = new STLLoader();
 loader.load(
     '/Shampoo-3d.stl',
     function (geometry) {
-        geometry.computeVertexNormals();
-        geometry.computeBoundingBox();
-        geometry.center(); 
+        const loaderText = document.getElementById('loader-text');
+        if (loaderText) {
+            loaderText.innerText = 'Applying Textures & Lighting...';
+        }
+
+        // Yield to browser so it can paint the text before heavy synchronous processing
+        setTimeout(() => {
+            geometry.computeVertexNormals();
+            geometry.computeBoundingBox();
+            geometry.center(); 
         
         const bbox = geometry.boundingBox;
         const size = new THREE.Vector3();
@@ -284,13 +291,18 @@ loader.load(
         if (loaderElement) {
             loaderElement.classList.add('hidden');
         }
+        }, 50); // 50ms delay to allow UI paint
     },
     (xhr) => {
         if (xhr.lengthComputable) {
-            const percentComplete = xhr.loaded / xhr.total * 100;
+            const percentComplete = Math.round(xhr.loaded / xhr.total * 100);
             const loaderText = document.getElementById('loader-text');
             if (loaderText) {
-                loaderText.innerText = `Loading 3D Model ${Math.round(percentComplete)}%`;
+                if (percentComplete >= 100) {
+                    loaderText.innerText = `Processing Geometry...`;
+                } else {
+                    loaderText.innerText = `Loading 3D Model ${percentComplete}%`;
+                }
             }
         }
     },
