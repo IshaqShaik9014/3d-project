@@ -2,6 +2,12 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { STLLoader } from 'three/addons/loaders/STLLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
+
+// Add the extension functions
+THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
+THREE.BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree;
+THREE.Mesh.prototype.raycast = acceleratedRaycast;
 
 // --- SETUP ---
 const appContainer = document.getElementById('app');
@@ -221,8 +227,9 @@ loader.load(
             geometry.computeVertexNormals();
             geometry.computeBoundingBox();
             geometry.center(); 
+            geometry.computeBoundsTree(); // Generate BVH to accelerate raycasting by 100x
         
-        const bbox = geometry.boundingBox;
+            const bbox = geometry.boundingBox;
         const size = new THREE.Vector3();
         bbox.getSize(size);
         
